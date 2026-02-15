@@ -19,7 +19,7 @@ export const Features: React.FC = () => {
     <div className="bg-white">
       
       {/* --- Part 1: Value Proposition & Visualization --- */}
-      <section id="why-delorg360" className="pt-20 pb-12 lg:pt-28 lg:pb-16">
+      <section id="why-delorg360" className="pt-20 pb-12 lg:pt-28 lg:pb-16 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
             
