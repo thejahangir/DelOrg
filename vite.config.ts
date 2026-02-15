@@ -3,35 +3,21 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, ".", "");
+  loadEnv(mode, ".", "");
 
   return {
-    base: "/DelOrg/", 
-    server: {
-      port: 3000,
-      host: "0.0.0.0",
-    },
+    base: "/DelOrg/",
 
     plugins: [react()],
 
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "src"), 
+        "@": path.resolve(__dirname, "src"),
       },
     },
 
     build: {
-      chunkSizeWarningLimit: 1000, 
-
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            vendor: ["react", "react-dom", "react-router-dom"],
-            charts: ["recharts"],
-            ai: ["@google/genai"],
-          },
-        },
-      },
+      chunkSizeWarningLimit: 1000, // keep this only
     },
   };
 });
