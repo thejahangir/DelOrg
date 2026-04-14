@@ -131,7 +131,7 @@ export const Hero: React.FC = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
-              <Button size="lg" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto" onClick={() => window.location.href = "Registration.aspx"}>
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

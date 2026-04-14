@@ -57,17 +57,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200/50 shadow-sm' : 'bg-transparent'
-      }`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200/50 shadow-sm' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
+
           {/* Logo */}
-          <div 
-            className="flex-shrink-0 flex items-center cursor-pointer" 
+          <div
+            className="flex-shrink-0 flex items-center cursor-pointer"
             onClick={() => onNavigate('home')}
           >
             {/* <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-blue-500 flex items-center justify-center text-white font-bold mr-2.5 shadow-lg shadow-indigo-500/30">
@@ -77,37 +76,37 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
               DelOrg<span className="text-indigo-600">360</span>
             </span> */}
 
-              <img src={LogoDO} className="logo-delorg" />
+            <img src={LogoDO} className="logo-delorg" />
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
-              <a 
-                key={item.name} 
-                href={item.href || '#'} 
-                className={`relative group py-2 text-sm font-bold transition-colors cursor-pointer tracking-wide ${
-                  (item.type === 'action' && currentPage === 'know-more') 
-                    ? 'text-indigo-600' 
+              <a
+                key={item.name}
+                href={item.href || '#'}
+                className={`relative group py-2 text-sm font-bold transition-colors cursor-pointer tracking-wide ${(item.type === 'action' && currentPage === 'know-more')
+                    ? 'text-indigo-600'
                     : 'text-slate-700 hover:text-indigo-600'
-                }`}
+                  }`}
                 onClick={(e) => handleNavClick(e, item)}
               >
                 {item.name}
                 {/* Gradient Underline */}
-                <span className={`absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-indigo-600 to-blue-500 transition-all duration-300 ease-out rounded-full ${
-                  (item.type === 'action' && currentPage === 'know-more')
+                <span className={`absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-indigo-600 to-blue-500 transition-all duration-300 ease-out rounded-full ${(item.type === 'action' && currentPage === 'know-more')
                     ? 'w-full'
                     : 'w-0 group-hover:w-full'
-                }`}></span>
+                  }`}></span>
               </a>
             ))}
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="#login" className="text-sm font-bold text-slate-700 hover:text-indigo-600 transition-colors tracking-wide">Log in</a>
-            <Button size="sm">
+            <a href="Signin.aspx" className="text-sm font-bold text-slate-700 hover:text-indigo-600 transition-colors tracking-wide">Log in</a>
+            <Button size="sm" onClick={() => {
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}>
               Book a Demo
               <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
@@ -115,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <button 
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-slate-600 hover:text-slate-900 p-2 focus:outline-none"
               aria-label="Toggle menu"
@@ -127,21 +126,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
       </div>
 
       {/* Mobile Menu */}
-      <div 
-        className={`md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
+      <div
+        className={`md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
       >
         <div className="px-4 pt-2 pb-6 space-y-1">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href || '#'}
-              className={`block px-3 py-3 text-base font-bold hover:bg-slate-50 rounded-md transition-colors ${
-                 (item.type === 'action' && currentPage === 'know-more')
+              className={`block px-3 py-3 text-base font-bold hover:bg-slate-50 rounded-md transition-colors ${(item.type === 'action' && currentPage === 'know-more')
                   ? 'text-indigo-600'
                   : 'text-slate-700 hover:text-indigo-600'
-              }`}
+                }`}
               onClick={(e) => handleNavClick(e, item)}
             >
               {item.name}
